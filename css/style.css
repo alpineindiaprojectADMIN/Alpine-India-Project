@@ -121,6 +121,27 @@ a {
   gap: 42px;
 }
 
+.menu-toggle {
+  display: none;
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.72);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.menu-toggle span {
+  width: 20px;
+  height: 2px;
+  background: var(--text);
+  transition: 0.2s ease;
+}
+
 .main-nav a {
   position: relative;
   font-size: 22px;
@@ -532,7 +553,7 @@ main {
 
 @media (max-width: 780px) {
   :root {
-    --header-height: 150px;
+    --header-height: 92px;
   }
 
   .page-width,
@@ -542,51 +563,208 @@ main {
 
   .navbar {
     min-height: var(--header-height);
-    padding: 18px 0;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    padding: 14px 0;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .brand {
+    gap: 12px;
+  }
+
+  .logo-wrap {
+    width: 64px;
+    height: 64px;
   }
 
   .brand-title {
     font-size: 48px;
   }
 
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .site-header.nav-open .menu-toggle span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .site-header.nav-open .menu-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .site-header.nav-open .menu-toggle span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
   .main-nav {
-    flex-wrap: wrap;
-    gap: 14px 18px;
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    padding: 8px 0;
+    background: rgba(242, 241, 237, 0.98);
+    border: 1px solid var(--line);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .site-header.nav-open .main-nav {
+    display: flex;
   }
 
   .main-nav a {
-    font-size: 16px;
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 15px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .main-nav a:last-child {
+    border-bottom: 0;
+  }
+
+  .main-nav a.active::after {
+    width: 28px;
+    left: 18px;
+    bottom: 10px;
   }
 
   .hero-media {
-    height: calc(100vh - var(--header-height) - 18px);
-    min-height: 260px;
+    height: min(60vh, 420px);
+    min-height: 240px;
+  }
+
+  .hero-content {
+    margin-top: 36px;
+  }
+
+  .eyebrow {
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+
+  .hero-title {
+    font-size: clamp(40px, 11vw, 54px);
+    line-height: 0.94;
+    letter-spacing: -1px;
   }
 
   .hero-sub,
   .cta-text {
-    font-size: 18px;
+    font-size: 16px;
+  }
+
+  .filter-row {
+    gap: 12px;
+    margin-top: 32px;
   }
 
   .filter-pill {
     width: 100%;
     min-width: 0;
+    padding: 14px 18px;
+    font-size: 16px;
+  }
+
+  .content-section {
+    padding: 20px 0 14px;
+  }
+
+  .section-head {
+    margin-top: 20px;
+    padding-bottom: 16px;
   }
 
   .section-label,
   .section-meta,
   .section-right {
-    font-size: 22px;
+    font-size: 18px;
+  }
+
+  .section-right::before {
+    display: none;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  .section-text {
+    margin-top: 14px;
+    font-size: 16px;
+  }
+
+  .cards {
+    gap: 20px;
+  }
+
+  .card-image-wrap {
+    height: 220px;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+
+  .card-title {
+    font-size: 24px;
+  }
+
+  .card-text {
+    font-size: 16px;
+  }
+
+  .story-band {
+    margin-top: 22px;
   }
 
   .story-item {
     grid-template-columns: 56px 1fr;
+    gap: 14px;
+    padding: 14px 0;
+  }
+
+  .story-number {
+    font-size: 22px;
+  }
+
+  .story-copy {
+    font-size: clamp(20px, 7vw, 32px);
+    line-height: 1;
+  }
+
+  .cta-panel {
+    margin-top: 24px;
+    padding: 24px 0 6px;
+  }
+
+  .cta-title {
+    font-size: clamp(38px, 11vw, 56px);
+  }
+
+  .cta-support-note {
+    font-size: 15px;
+  }
+
+  .cta-row {
+    margin-top: 22px;
+    gap: 12px;
+  }
+
+  .cta-btn {
+    width: 100%;
+    text-align: center;
+    padding: 14px 18px;
+    font-size: 16px;
   }
 
   .footer {
     font-size: 16px;
+    padding: 20px 0 34px;
   }
 }
