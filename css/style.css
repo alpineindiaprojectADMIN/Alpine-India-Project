@@ -215,6 +215,47 @@ main {
   letter-spacing: 0.04em;
 }
 
+.hero-scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.hero-scroll-text {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.hero-scroll-arrow {
+  width: 16px;
+  height: 16px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  animation: heroScrollArrow 1.8s ease-in-out infinite;
+}
+
+@keyframes heroScrollArrow {
+  0%, 100% {
+    transform: rotate(45deg) translate(0, 0);
+    opacity: 0.65;
+  }
+
+  50% {
+    transform: rotate(45deg) translate(6px, 6px);
+    opacity: 1;
+  }
+}
+
 .hero-content {
   margin-top: 54px;
 }
@@ -641,6 +682,15 @@ main {
 
   .hero-content {
     margin-top: 36px;
+  }
+
+  .hero-scroll-cue {
+    bottom: 18px;
+  }
+
+  .hero-scroll-text {
+    font-size: 11px;
+    letter-spacing: 0.14em;
   }
 
   .eyebrow {
