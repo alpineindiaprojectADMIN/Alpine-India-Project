@@ -5,13 +5,14 @@
 }
 
 :root {
-  --bg: #f2f1ed;
+  --bg: #fffaf2;
   --surface: #ffffff;
   --text: #0b0b0b;
   --muted: #666666;
-  --line: #d4d4d4;
-  --pill: #e7e6e2;
-  --accent: #e3362c;
+  --line: #e4d9c8;
+  --pill: #fff0db;
+  --accent: #ff9933;
+  --support: #138808;
   --header-height: 80px;
 }
 
@@ -47,7 +48,7 @@ a {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(242, 241, 237, 0.96);
+  background: rgba(255, 250, 242, 0.96);
   backdrop-filter: blur(10px);
 }
 
@@ -542,14 +543,14 @@ main {
 }
 
 .cta-btn.primary {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--support);
+  border-color: var(--support);
   color: #fff;
 }
 
 .cta-btn.primary:hover {
   opacity: 0.92;
-  background: var(--accent);
+  background: var(--support);
 }
 
 .footer {
@@ -646,7 +647,7 @@ main {
     left: 0;
     right: 0;
     padding: 8px 0;
-    background: rgba(242, 241, 237, 0.98);
+    background: rgba(255, 250, 242, 0.98);
     border: 1px solid var(--line);
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
     flex-direction: column;
